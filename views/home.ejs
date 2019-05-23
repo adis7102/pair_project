@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>GameGarage | Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Maven Pro', sans-serif;
+        }
+        img {
+            box-sizing: border-box;
+            width: 200px;
+            height: 300px;
+            box-shadow: 0px 0px 15px rgb(57, 57, 58);
+        }
+        li.gameslist {
+            display: inline-block;
+        }
+        div.game {
+            margin: 20px;
+            text-align: center;
+        }
+
+        div.image {
+            box-sizing: border-box;
+            width: 200px;
+            height: 300px;
+        }
+
+        div.all {
+            box-sizing: border-box;
+            margin-top: 30px;
+            padding-left: 40px;
+        }
+        button {
+            background-color: #ffffff;
+            font-size: 20px;
+            color: #151515;
+            border-radius: 50px;
+            margin-top: 30px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <%- include('./partials/navbar.ejs') %>
+
+    <div class="all">
+
+        <h1>Top 5 Games</h1>
+
+        <ul>
+            <% for (let i = 0; i < allGames.length; i++) { %>
+            <li class="gameslist">
+                <div class="game">
+                    <form action="/games/buy/:gamesId" method="POST">
+                        <div class="image"><img src="<%= allGames[i].dataValues.image_location %>"></div>
+                        <span class="title"><%= allGames[i].dataValues.name %></span>
+                        <br>
+                        <a href="/games/buy/<%= allGames[i].id %>">Checkout</a>
+                    </form>
+                </div>
+            </li>
+            <%}%>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>

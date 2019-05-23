@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Games</title>
+</head>
+
+<body>
+
+    <h1>UPDATE GAMES</h1>
+
+    <label for="games">Games:</label>
+    <form action="/games/edit/<%= game.id %>" method="POST">
+
+        <label for="name">Name</label>
+        <br>
+        <input type="text" name="name" value="<%= game.name %>">
+        <br><br>
+        <label for="price">Price</label>
+        <br>
+        <input type="text" name="price" value="<%= game.price %>">
+        <br>
+        <br>
+        <label for="price">img_location:</label>
+        <br>
+        <input type="text" name="image_location" value="<%= game.image_location %>">
+        <button type="submit">UPDATE</button>
+    </form>
+
+
+</body>
+
+</html>

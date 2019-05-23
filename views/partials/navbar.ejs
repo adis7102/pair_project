@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">GamerGarage</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/games">Games</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/login">Log in</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/users/<%= user.name %>">My Page</a>
+            </li>
+            <%if (user.id != undefined) {%>
+            <li class="nav-item active">
+                <a class="nav-link" href="/topup/<%= user.id %>">TOP UP</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/logout">Log out</a>
+            </li>
+            <%}%>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="POST" action="/search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
